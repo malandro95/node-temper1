@@ -21,12 +21,13 @@ function readTemperatures() {
 //      console.log(item);
 //      console.log(device);
 //        console.log(item.product + " vs " + device.name)
-      if (item.product.trim() == device.name.trim() && parseInt(item.interface) == device.interface){
+      if (item.product === device.name && parseInt(item.interface) === device.interface){
         
         console.log("********************************** found ****************************************")
         console.log(item.product + " " + device.name)
         console.log(item.path);
         temp = readDevice(item, device);
+        console.log("temp:" + temp);
       };
     });
   });
