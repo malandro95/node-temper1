@@ -12,16 +12,10 @@ var outputFilename = 'current_temp.json';
 var devices=thermometers.getDevices();
 
 thermometers.readTemperature(devices[0], function(err, value) {
-  console.log("Result:"+value);
-  console.log("Error:"+err);
   var f = thermometers.toDegreeFarenheit(value);
   console.log("F:"+f);
   
-/*  var now = new Date().toLocaleString().toISOString().
-    replace(/T/, ' ').      // replace T with a space
-    replace(/\..+/, '');*/
-
-   var now = moment().format("YYYY-MM-DD HH:mm:ss");
+  var now = moment().format("YYYY-MM-DD HH:mm:ss");
 
   outputData.degreesF = f;
   outputData.date = now;
