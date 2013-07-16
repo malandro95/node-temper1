@@ -1,5 +1,6 @@
 thermometers=require("..");
 var fs = require('fs');
+var moment = require('moment');
 
 var outputData = {
   date:'null',
@@ -16,9 +17,11 @@ thermometers.readTemperature(devices[0], function(err, value) {
   var f = thermometers.toDegreeFarenheit(value);
   console.log("F:"+f);
   
-  var now = new Date().toISOString().
+/*  var now = new Date().toLocaleString().toISOString().
     replace(/T/, ' ').      // replace T with a space
-    replace(/\..+/, '');
+    replace(/\..+/, '');*/
+
+   var now = moment().format("YYYY-MM-DD HH:mm:ss");
 
   outputData.degreesF = f;
   outputData.date = now;
